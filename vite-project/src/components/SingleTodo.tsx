@@ -15,10 +15,15 @@ const SingleTodo = ({ todos, setTodos }: Props) => {
       )
     );
   };
+
+  const handleDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
   return (
     <>
       {todos.map((todo) => (
         <div
+          key={todo.id}
           className="p-2 border border-solid rounded-md w-full
         flex justify-between"
         >
@@ -27,7 +32,7 @@ const SingleTodo = ({ todos, setTodos }: Props) => {
           </span>
           <div className="flex items-center gap-3 justify-end hover:cursor-pointer">
             <span>
-              <MdDeleteOutline />
+              <MdDeleteOutline onClick={() => handleDelete(todo.id)} />
             </span>
             <span>
               <MdOutlineModeEdit />
