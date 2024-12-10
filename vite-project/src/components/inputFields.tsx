@@ -1,4 +1,4 @@
-import { Button, Input, Space } from "antd";
+import { Input, Space } from "antd";
 interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
