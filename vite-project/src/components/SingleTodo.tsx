@@ -5,9 +5,16 @@ import { FaRegCheckCircle } from "react-icons/fa";
 
 type Props = {
   todos: Todo[];
-  setTodo: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 };
 const SingleTodo = ({ todos, setTodos }: Props) => {
+  const handleCheck = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
   return (
     <>
       {todos.map((todo) => (
@@ -15,7 +22,9 @@ const SingleTodo = ({ todos, setTodos }: Props) => {
           className="p-2 border border-solid rounded-md w-full
         flex justify-between"
         >
-          <span>{todo.todo}</span>
+          <span className={`${todo.isDone ? "line-through" : ""}`}>
+            {todo.todo}
+          </span>
           <div className="flex items-center gap-3 justify-end hover:cursor-pointer">
             <span>
               <MdDeleteOutline />
@@ -24,7 +33,7 @@ const SingleTodo = ({ todos, setTodos }: Props) => {
               <MdOutlineModeEdit />
             </span>
             <span>
-              <FaRegCheckCircle />
+              <FaRegCheckCircle onClick={() => handleCheck(todo.id)} />
             </span>
           </div>
         </div>

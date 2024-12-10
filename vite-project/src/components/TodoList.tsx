@@ -3,7 +3,7 @@ import SingleTodo from "./SingleTodo";
 
 interface Props {
   todos: Todo[];
-  setTodo: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
   return (
