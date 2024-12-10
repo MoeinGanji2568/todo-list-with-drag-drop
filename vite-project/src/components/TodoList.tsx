@@ -8,7 +8,14 @@ interface Props {
 const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
   return (
     <div className="flex flex-col gap-3 min-w-[380px]">
-      <SingleTodo todos={todos} setTodos={setTodos} />
+      {todos.map((todo) => (
+        <SingleTodo
+          todos={todos}
+          setTodos={setTodos}
+          todo={todo}
+          key={todo.id}
+        />
+      ))}
     </div>
   );
 };

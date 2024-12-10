@@ -16,7 +16,6 @@ const App: React.FC = () => {
       setTodo("");
     }
   };
-  console.log(todos);
   return (
     <div className="min-w-[380px] max-w-2xl flex flex-col justify-center items-center gap-5">
       <h1 className="text-blue-600">hello</h1>
